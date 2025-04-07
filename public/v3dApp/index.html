@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BMW M8</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <script src="v3d.js"></script>
+    <script src="bmw_m8_web.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bmw_m8_web.css" />
+
+    <style>
+      .colors-section {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+        background-color: #ffffff44;
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        display: flex;
+        gap: 10px;
+      }
+      .color {
+        height: 50px;
+        width: 50px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="v3d-container">
+      <div class="colors-section">
+        <button
+          class="color"
+          style="
+            background: rgb(0, 0, 0);
+            background: linear-gradient(
+              45deg,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(0, 0, 0, 1) 100%
+            );
+          "
+          id="Black"
+        ></button>
+        <button
+          class="color"
+          style="
+            background: rgb(42, 0, 224);
+            background: linear-gradient(
+              45deg,
+              rgba(42, 0, 224, 1) 0%,
+              rgba(4, 0, 255, 1) 100%
+            );
+          "
+          id="BluePurple"
+        ></button>
+        <button
+          class="color"
+          style="
+            background: rgb(255, 92, 0);
+            background: linear-gradient(
+              45deg,
+              rgba(255, 92, 0, 1) 0%,
+              rgba(255, 0, 0, 1) 100%
+            );
+          "
+          id="RedGold"
+        ></button>
+        <button
+          class="color"
+          style="
+            background: rgb(255, 0, 0);
+            background: linear-gradient(
+              225deg,
+              rgba(255, 0, 0, 1) 0%,
+              rgba(255, 0, 0, 1) 100%
+            );
+          "
+          id="Red"
+        ></button>
+      </div>
+    </div>
+  </body>
+</html>

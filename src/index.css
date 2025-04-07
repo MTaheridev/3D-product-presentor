@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Rosegold gradient */
+/* Gold gradient */
+.gradient-gold {
+  background: 
+    radial-gradient(circle at top left, rgba(255,255,255,0.8) 20%, transparent 70%),
+    linear-gradient(135deg, #B8860B, #8B6914);
+}
+  /* Red gradient */
+  .gradient-red {
+    background: 
+      radial-gradient(circle at top left, rgba(255,255,255,0.8) 20%, transparent 70%),
+      linear-gradient(135deg, #FF7F7F, #FF0000);
+  }
+  
+  /* Blue to Purple gradient */
+  .gradient-blue-purple {
+    background: 
+      radial-gradient(circle at top left, rgba(255,255,255,0.8) 20%, transparent 70%),
+      linear-gradient(135deg, #0000FF, #8A2BE2);
+  }
+  
+  /* Black gradient */
+  .gradient-black {
+    /* A subtler white reflection for black */
+    background: 
+      radial-gradient(circle at top left, rgba(255,255,255,0.5) 20%, transparent 70%),
+      linear-gradient(135deg, #434343, #000000);
+  }
+  
+
+@layer base{
+    h1, h2{
+        @apply text-white font-["Lexend_Zetta"]
+    }
+}
