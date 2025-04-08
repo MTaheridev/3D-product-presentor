@@ -36,7 +36,7 @@ function App() {
         clearInterval(intervalLoadingId);
       }
     }
-  }, 1);
+  }, 100);
   return (
     <div className="relative w-full h-full">
       {/*MAMAD Attention: this is 3D Canvas*/}
