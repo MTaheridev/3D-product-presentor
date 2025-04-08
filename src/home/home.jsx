@@ -4,7 +4,6 @@ import { motion, AnimatePresence, easeInOut } from "framer-motion";
 const HomePage = (percentage) => {
   const [loading, setLoading] = useState(true);
 
-  // Simulate loading complete after 3 seconds (adjust as needed)
   useEffect(() => {
     if (percentage.percentage >= 100) {
       setTimeout(() => {
@@ -13,9 +12,6 @@ const HomePage = (percentage) => {
     }
   }, [percentage.percentage]);
 
-
-
-  // Variants for the top black div
   const topVariants = {
     exit: {
       y: -1000,
@@ -23,7 +19,6 @@ const HomePage = (percentage) => {
     },
   };
 
-  // Variants for the bottom black div
   const bottomVariants = {
     exit: {
       y: 1000,
@@ -76,10 +71,10 @@ const HomePage = (percentage) => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{
-          opacity: percentage.percentage === 100 ? 1 : 0,
-          y: percentage.percentage === 100 ? 0 : 50,
+          opacity: !loading ? 1 : 0,
+          y: !loading ? 0 : 50,
         }}
-        transition={{ delay: 3, duration: 1, easeInOut }} // Delay to ensure it runs after loader disappears
+        transition={{ delay: 1, duration: 1, easeInOut }} // Delay to ensure it runs after loader disappears
         className="relative z-0 w-full h-full flex flex-col justify-between items-center pt-10 pb-14 select-none"
       >
         <div className="flex flex-col justify-center items-center gap-4">
