@@ -8,7 +8,7 @@ const HomePage = (percentage) => {
     if (percentage.percentage >= 100) {
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 2000);
     }
   }, [percentage.percentage]);
 
@@ -50,8 +50,8 @@ const HomePage = (percentage) => {
             >
               <motion.div
                 initial={{ width: "0%" }}
-                animate={{ width: `${percentage.percentage}%` }}
-                transition={{ duration: 1, ease: "easeInOut" }}
+                animate={{ width: "100%"}}
+                transition={{ duration: 5, ease: "easeInOut" }}
                 className="h-[1px] bg-white"
               />
             </motion.div>

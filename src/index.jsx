@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import V3DApp from "./V3DApp";
@@ -27,17 +27,24 @@ function App() {
     }
   }, 1);
 
-  const intervalLoadingId = setInterval(() => {
+  useEffect(() => {
     const container = document.querySelector(".v3d-simple-preloader-bar");
-
-    if (container) {
-      const percentageWidth = container.style.width.replaceAll("%", "");
-      SetPercentage(parseInt(percentageWidth));
-      if (parseInt(percentageWidth) === 100) {
-        clearInterval(intervalLoadingId);
+    const intervalLoadingId = setInterval(() => {
+      if (container) {
+        const percentageWidth = parseInt(
+          container.style.width.replace("%", "")
+        );
+        SetPercentage(percentageWidth);
+        if (percentageWidth >= 100) {
+          clearInterval(intervalLoadingId);
+        }
+        console.log(container.style.width);
       }
-    }
-  }, 100);
+    }, 10);
+    return () => clearInterval(intervalLoadingId);
+  }, []);
+
+
   return (
     <div className="relative w-full h-full">
       {/*MAMAD Attention: this is 3D Canvas*/}
