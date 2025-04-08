@@ -26,13 +26,14 @@ function App() {
       });
     }
   }, 1);
+
   const intervalLoadingId = setInterval(() => {
     const container = document.querySelector(".v3d-simple-preloader-bar");
 
     if (container) {
       const percentageWidth = container.style.width.replaceAll("%", "");
       SetPercentage(parseInt(percentageWidth));
-      if (parseInt(percentageWidth) >= 100) {
+      if (parseInt(percentageWidth) === 100) {
         clearInterval(intervalLoadingId);
       }
     }
