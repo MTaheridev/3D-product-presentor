@@ -106,7 +106,7 @@ const HomePage = (percentage) => {
           <div className="bg-gradient-to-r from-white/0 via-white/35 to-white/0 h-[1px] w-full" />
         </div>
         <p className="w-lvw font-thin text-white/50 text-sm mb-2 absolute bottom-0 text-center">
-          Designed by Emiro
+          Designed by <a className="underline cursor-pointer" href="mailto:mohammadtaheri.dev@gmail.com">This Guy</a>
         </p>
       </motion.div>
     </div>
