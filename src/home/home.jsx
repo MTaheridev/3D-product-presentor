@@ -8,7 +8,7 @@ const HomePage = (percentage) => {
     if (percentage.percentage >= 100) {
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 3000);
     }
   }, [percentage.percentage]);
 
