@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence, delay, easeInOut } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 
-const HomePage = () => {
+const HomePage = (percentage) => {
   const [loading, setLoading] = useState(true);
 
   // Simulate loading complete after 3 seconds (adjust as needed)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (percentage.percentage >= 100) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+  }, [percentage.percentage]);
 
-  // Variants for the white loader bar
-  const loaderVariants = {
-    initial: { width: "0%" },
-    animate: { width: "100%", transition: { duration: 5, ease: "easeInOut" } },
-  };
+
 
   // Variants for the top black div
   const topVariants = {
@@ -34,11 +31,11 @@ const HomePage = () => {
     },
   };
   const middleVariants = {
-    exit: { opacity: 0, transition: { duration: 0.5 } }, // Middle div disappears first
+    exit: { opacity: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
+    <div className="w-screen h-[100svh] overflow-hidden relative">
       <AnimatePresence>
         {loading && (
           <>
@@ -57,10 +54,9 @@ const HomePage = () => {
               className="w-full h-[1px] bg-black flex justify-center items-center"
             >
               <motion.div
-                variants={loaderVariants}
-                initial="initial"
-                animate="animate"
-                exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                initial={{ width: "0%" }}
+                animate={{ width: `${percentage.percentage}%` }}
+                transition={{ duration: 1, ease: "easeInOut" }}
                 className="h-[1px] bg-white"
               />
             </motion.div>
@@ -79,8 +75,11 @@ const HomePage = () => {
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 6, duration: 1, easeInOut }} // Delay to ensure it runs after loader disappears
+        animate={{
+          opacity: percentage.percentage === 100 ? 1 : 0,
+          y: percentage.percentage === 100 ? 0 : 50,
+        }}
+        transition={{ delay: 3, duration: 1, easeInOut }} // Delay to ensure it runs after loader disappears
         className="relative z-0 w-full h-full flex flex-col justify-between items-center pt-10 pb-14 select-none"
       >
         <div className="flex flex-col justify-center items-center gap-4">
@@ -112,13 +111,7 @@ const HomePage = () => {
           <div className="bg-gradient-to-r from-white/0 via-white/35 to-white/0 h-[1px] w-full" />
         </div>
         <p className="w-lvw font-thin text-white/50 text-sm mb-2 absolute bottom-0 text-center">
-          designed and framed by:{" "}
-          <a
-            href="mailto:mohammadtaheri.dev@gmail.com"
-            className="underline text-white/80 pointer-events-auto cursor-pointer"
-          >
-            This Guy
-          </a>
+          Designed by Emiro
         </p>
       </motion.div>
     </div>

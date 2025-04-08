@@ -71,7 +71,7 @@ function createPreloader(containerId, initOptions, PE) {
         initOptions.preloaderEndCb
       )
     : new v3d.SimplePreloader({ container: containerId });
-
+  console.log(initOptions);
   if (PE) puzzlesEditorPreparePreloader(preloader, PE);
 
   return preloader;
